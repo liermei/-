@@ -1,0 +1,17 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<list>
+#include<iterator>
+using namespace std;
+int main()
+{
+	vector<int>vint = { 1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6,7,7,7,7,7,8,8,8,9,9 };
+	list<int>lint;
+	unique_copy(vint.begin(), vint.end(), inserter(lint,lint.begin()));//注意inserter以及back_inserter,front_inserter都在头文件iterator中。
+	for (auto c=lint.cbegin();c!=lint.end();c++)
+		cout << *c << " ";
+	cout << endl;
+	system("pause");
+	return 0;
+}
