@@ -1,0 +1,25 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+#include<iterator>
+#include<fstream>
+using namespace std;
+int main()
+{
+	ifstream is("file1.txt");
+	if (!is) {
+		cout << "打开输入文件失败" << endl;
+		exit(1);//0是正常退出，非0是不正常
+	}
+	istream_iterator<string>in_iter(is);
+	istream_iterator<string>eof;
+	vector<string>vstr;
+	while (in_iter != eof)
+		vstr.push_back(*in_iter++);
+	for (auto word : vstr)
+		cout << word << " ";
+	cout << endl;
+	system("pause");
+	return 0;
+}
