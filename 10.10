@@ -1,0 +1,30 @@
+10.10
+
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+bool isShorter(const string &s1, const string &s2)
+{
+	return s1.size() < s2.size();
+}
+void elimDups(vector<string>&words)
+{
+	sort(words.begin(), words.end());
+	auto end_words = unique(words.begin(), words.end());
+	words.erase(end_words, words.end());
+	for (auto c : words)
+		cout << c << " ";
+		cout<<endl;
+}
+int main()
+{	
+	vector<string>vstr = { "i","have","a","dream","and","i","have","to","finish","it" };
+	elimDups(vstr);
+	stable_sort(vstr.begin(), vstr.end(), isShorter);  //stable的作用在于维持isShorter判定的相等元素在重新排列后的先后次序跟原来一样。
+	for (const auto &c : vstr)
+		cout << c << " ";
+	system("pause");
+	return 0;
+}
