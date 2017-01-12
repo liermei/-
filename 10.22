@@ -1,0 +1,19 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+#include<functional>
+using namespace std;
+using namespace std::placeholders;
+bool isShorter_6( string& s, int n)
+{
+	return s.size() <= n;
+}
+int main()
+{
+	vector<string>vstr = { "i", "have", "a", "dream", "and", "i", "have", "to", "finish", "it" };
+	auto total = count_if(vstr.begin(), vstr.end(), bind(isShorter_6, _1, 6));
+	cout << "you" << total << "ge yuan su" << endl;
+	system("pause");
+	return 0;
+}
