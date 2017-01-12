@@ -1,0 +1,28 @@
+include<iostream>
+#include<vector>
+#include<algorithm>
+#include<list>
+#include<iterator>
+using namespace std;
+int main()
+{
+	vector<int>v1 = { 1,2,3,4,5,6,7,8,9 };
+	list<int>v2, v3, v4;                            //注意插入迭代器是架构在容器支持的操作上，list支持随意插入，vector只支持尾部插入，所以对vector只能使用back_inserter。
+	copy(v1.begin(), v1.end(), front_inserter(v2));
+	for (auto c : v2)
+		cout << c << " ";
+	cout << endl;
+
+	copy(v1.begin(), v1.end(),back_inserter(v3));
+	for (auto c : v3)
+		cout << c << " ";
+	cout << endl;
+
+	copy(v1.begin(), v1.end(), inserter(v4, v4.begin()));
+	for (auto c : v4)
+		cout << c << " ";
+	cout << endl;
+
+	system("pause");
+	return 0;
+}
