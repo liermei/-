@@ -1,0 +1,38 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+bool isShorter(const string &s1, const string &s2)
+{
+	return s1.size() < s2.size();
+}
+void elimDups(vector<string>&words)
+{
+	sort(words.begin(), words.end());
+	auto end_words = unique(words.begin(), words.end());
+	words.erase(end_words, words.end());
+	for (auto c : words)
+		cout << c << " ";
+	cout << endl;
+}
+
+void biggies(vector<string>&words, vector<string>::size_type sz)
+{
+	elimDups(words);//消除重复，按字典序排序
+	stable_sort(words.begin(), words.end(), isShorter);//按长度排序，维持字典序
+	auto first = find_if(words.begin(), words.end(),//找到第一个大于sz的元素
+		[sz](const string &a) {return a.size() >= sz; });
+	auto total = words.end() - first;
+	cout << "一共有" << total << "个满足要求的元素" << endl;
+	for_each(first, words.end(),
+		[](const string&s) {cout << s << " "; });
+		cout << endl;
+}
+int main()
+{	
+	vector < string >vstr= {"i", "have", "a", "dream", "and", "i", "have", "to", "finish", "it"};
+	biggies(vstr, 2);
+	system("pause");
+	return 0;
+}
