@@ -1,0 +1,13 @@
+#include<iostream>
+#include<vector>
+#include<iterator>
+using namespace std;
+int main()
+{
+	vector<int>vint = { 1,2,3,4,5,6,7,8 };
+	for (auto r_iter = vint.cend(); r_iter != vint.cbegin(); )
+		cout << *(--r_iter) << " "; 因为cbegin前的位置是未知。所以不能把--iter放到条件中去了
+	cout << endl;
+	system("pause");
+	return 0;
+}
