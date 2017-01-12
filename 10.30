@@ -1,0 +1,19 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<iterator>
+using namespace std;
+int main()
+{
+	vector<int>vint;
+	istream_iterator<int>in_iter(cin);
+	istream_iterator<int>eof;
+	while (in_iter != eof)
+		vint.push_back(*in_iter++);
+	sort(vint.begin(), vint.end());
+	ostream_iterator<int>out_iter(cout, " ");
+	copy(vint.begin(), vint.end(), out_iter);
+
+	system("pause");
+	return 0;
+}
