@@ -1,0 +1,27 @@
+10.4      
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<string>
+#include<numeric>
+using namespace std;
+int main()
+{
+	vector<double>vint;
+	for (double i = 0; i < 100; i+=0.15)
+		vint.push_back(i);
+	double sum = accumulate(vint.cbegin(), vint.cend(), 0.0);  //如果第三个参数是0，则为int的加法，最后结果是int，因此double应该用0.0
+	int i = 0;
+	for (auto c : vint) {
+		cout << c << '\t';
+		if (i != 8)
+			i++;
+		else {
+			cout << endl;
+			i = 0;
+		}
+	}
+	cout << "和是：" << sum << endl;
+	system("pause");
+	return 0;
+}
