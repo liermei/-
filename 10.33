@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<iterator>
+#include<fstream>
+using namespace std;
+int main()
+{
+	ifstream is("file2.txt");
+	if (!is) {
+		cout << "打开输入文件失败。" << endl;
+		exit(1);
+	}
+	ofstream out1("outf1");
+	if (!out1) {
+		cout << "打开输出文件失败。" << endl;
+		exit(1);
+	}
+	ofstream out2("outf2");
+	if (!out2) {
+		cout << "打开输出文件失败。" << endl;
+		exit(1);
+	}
+	istream_iterator<int>in_iter(is);
+	istream_iterator<int>eof;
+	ostream_iterator<int>out_iter1(out1," ");
+	ostream_iterator<int>out_iter2(out2,"\n");
+	while (in_iter != eof) {
+		if (*in_iter % 2 == 1)//判断是奇数，则输出给文件1，迭代器推向下一个元素
+			out_iter1 = *in_iter++;
+		else                  //偶数则给文件二，并且迭代器推向下一个元素。
+			out_iter2 = *in_iter++;
+	}
+	return 0;
+}
