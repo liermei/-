@@ -1,0 +1,20 @@
+10.13
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+bool p5(const string &str)
+{
+	return str.size() >= 5;
+}
+int main()
+{	
+	vector<string>words = { "i","heaven","geography","and","island","have","to","it" };
+	auto wend=partition(words.begin(), words.end(), p5);  //需要注意partition不会将分成的两堆数据按照之前的序号排列。
+	for (auto iter = words.cbegin(); iter !=words.cend(); iter++)  
+		cout << *wend << " ";
+	cout << endl;
+	system("pause");
+	return 0;
+}
