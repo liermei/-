@@ -1,0 +1,17 @@
+10.3
+include<iostream>
+#include<algorithm>
+#include<vector>
+#include<string>
+#include<numeric>
+using namespace std;
+int main()
+{
+	vector<int>vint;
+	for (int i = 0; i < 100; i++)
+		vint.push_back(i);
+	int sum = accumulate(vint.cbegin(), vint.cend(), 0);
+	cout << "1-99的和是：" << sum << endl;
+	system("pause");
+	return 0;
+}
