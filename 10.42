@@ -1,0 +1,17 @@
+#include<iostream>
+#include<list>
+#include<iterator>
+#include<vector>
+#include<string>
+using namespace std;
+int main()
+{
+	list<string>lsty = { "i","have","a","dream","and","i","have","to","finish","it" };
+	lsty.sort();
+	lsty.unique();
+	for (auto p : lsty)
+		cout << p << " " << endl;
+	system("pause");
+	return 0;
+}
+
