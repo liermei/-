@@ -1,0 +1,25 @@
+10.2
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<string>
+using namespace std;
+int main()
+{
+	vector<string>vstr;
+	string word;
+	while (cin >> word)
+	{
+		if (!cin) {
+			cerr << "输入错误，请重新输入：" << endl;
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+		}
+		vstr.push_back(word);
+	}
+	int i = count(vstr.begin(), vstr.end(), "love");
+	cout << i;
+	system("pause");
+	return 0;
+}
